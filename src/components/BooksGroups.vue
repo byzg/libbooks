@@ -43,6 +43,9 @@ export default {
     Sepapator,
     Book,
   },
+  watch: {
+    '$route.params.sort': function () { this.page = 1; },
+  },
   methods: {
     loadMore() {
       if ([...this.$props.booksGroups].pop().hasNext) {

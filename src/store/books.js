@@ -11,8 +11,8 @@ export default {
   mutations: {
     ...typedMutations(RECEIVE, {
       [RECEIVE.REQUEST](state, payload) {
-        const { params: { bookshelf, o } } = payload;
-        if (state.bookshelf !== bookshelf || o) state.groups = [];
+        const { params: { bookshelf, page } } = payload;
+        if (state.bookshelf !== bookshelf || page === 1) state.groups = [];
         state.bookshelf = bookshelf;
       },
       [RECEIVE.SUCCESS](state, payload) {
