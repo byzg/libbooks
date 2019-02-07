@@ -44,7 +44,7 @@ export default {
     Book,
   },
   watch: {
-    '$route.params.sort': function () { this.page = 1; },
+    '$route.params.sort': function watchSort() { this.page = 1; },
   },
   methods: {
     loadMore() {

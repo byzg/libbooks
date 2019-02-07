@@ -53,8 +53,8 @@ export default {
     },
   },
   watch: {
-    '$route.params.shelfSlug': function () { this.receiveBooksBySlug(); },
-    '$route.params.sort': function () { this.receiveBooksBySlug(); },
+    '$route.params.shelfSlug': function watchShelfSlug() { this.receiveBooksBySlug(); },
+    '$route.params.sort': function watchSort() { this.receiveBooksBySlug(); },
   },
   methods: {
     ...mapActions({
