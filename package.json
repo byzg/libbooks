@@ -9,10 +9,15 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "humps": "^2.0.1",
     "lodash": "^4.17.11",
+    "qs": "^6.6.0",
     "register-service-worker": "^1.5.2",
+    "styled-tools": "^1.7.1",
     "vue": "^2.5.22",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.0.1",
+    "vue-styled-components": "^1.4.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -41,7 +46,10 @@
       "vue"
     ],
     "rules": {
-      "no-param-reassign": 0
+      "no-param-reassign": 0,
+      "no-plusplus": 0,
+      "vue/require-v-for-key": "off",
+      "vue/valid-v-for": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"

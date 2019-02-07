@@ -1,5 +1,6 @@
 import axios from 'axios';
 import _ from 'lodash';
+import humps from 'humps';
 
 const BASE_URL = 'https://cors-anywhere.herokuapp.com/http://my-lib.ru/api';
 const ACTION_TYPES = ['REQUEST', 'SUCCESS', 'FAILURE'];
@@ -13,12 +14,12 @@ export const typedMutations = (actionTypes, extend = {}) => ({
   ...extend,
 });
 
-const doAsync = (store, { path, types }) => {
-  store.commit(types.REQUEST);
+const doAsync = (store, { path, types, params }) => {
+  store.commit(types.REQUEST, { params });
 
-  axios(`${BASE_URL}/${path}`, {})
+  return axios.get(`${BASE_URL}${path}`, { params })
     .then((response) => {
-      store.commit(types.SUCCESS, response);
+      store.commit(types.SUCCESS, humps.camelizeKeys({ ...response, ...params }));
     })
     .catch(() => {
       store.commit(types.FAILURE);
